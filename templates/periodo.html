@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/andre.css" rel="stylesheet">
+    <title>Modelos mais buscados</title>
+
+    <link href="/static/css/arena.css" rel="stylesheet">
+        <!-- Custom fonts for this template -->
+        <link href="/static/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+    
+        <!-- Custom styles for this template -->
+        <link href="/static/css/sb-admin-2.min.css" rel="stylesheet">
+    
+        <!-- Custom styles for this page -->
+        <link href="/static/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    
+</head>
+<body>
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 style="color: #e9e9f7!important"  class="h3 mb-2 text-gray-800">Buscas Não Encontradas</h1>
+                    
+                    <div id='chart3' class='chart3' ></div>
+                    <!-- Div id=chart3 é o grafico flutuando pra direita da pagina -->
+                    
+
+                   
+                    
+                    <div style="height: 20px">
+
+                    
+
+                        
+                    
+                                           
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <form action="./periodo">
+                                  <input type="submit" style="background-color: dodgerblue;" value="BUSCAS POR PERIODO" />
+                                </form>
+                               </td>
+                            <td>
+                                <form action="./orcamentos">
+                                  <input type="submit" value="ORÇAMENTOS" />
+                                </form>
+                               </td>
+                            <td>
+                                <form action="./">
+                                   <input type="submit" value="MODELOS BUSCADOS" />
+                                </form>
+                               </td>
+                        <td>
+                         <form action="./borrachas">
+                            <input type="submit" value="BORRACHAS" />
+                         </form>
+                         </td>
+                       
+                         <td>
+                         <form action="./vidrovg">
+                            <input type="submit" value="VIGIAS" />
+                         </form>
+                         </td>
+                       
+                        <td>
+                         <form action="./vidropb">
+                            <input type="submit" value="PARABRISAS" />
+                         </form>
+                         </td>
+                       
+                        <td>
+                         <form action="./laterais">
+                            <input type="submit" value="VIDROS LATERAIS" />
+                         </form>
+                         </td>
+                       
+                       </table>
+                       
+                       </table>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+
+
+
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Produtos e Carros</h6>
+                        </div>
+
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>MES</th>
+                                           
+                                            <th>BUCAS</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>MES</th>
+                                           
+                                            <th>BUCAS</th>
+                                          
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for d in dados %}
+                                            <tr>
+                                                <td>{{d.MES}}</td>
+                                               
+                                                <td>{{d.BUSCAS}}</td>
+                                                
+                                            </tr>
+                                        {% endfor %}  
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+
+    
+     <!-- Bootstrap core JavaScript-->
+     <script src="static/js/jquery.min.js"></script>
+     <script src="static/js/bootstrap.bundle.min.js"></script>
+ 
+     <!-- Core plugin JavaScript-->
+     <script src="static/js/jquery.easing.min.js"></script>
+ 
+     <!-- Custom scripts for all pages-->
+     <script src="static/js/sb-admin-2.min.js"></script>
+ 
+     <!-- Page level plugins -->
+     <script src="static/js/jquery.dataTables.min.js"></script>
+     <script src="static/js/dataTables.bootstrap4.min.js"></script>
+
+     <script src="static/js/dataTables-demo.js"></script>
+
+    </body>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <script type="text/javascript">
+      var graphs = {{graphJSON | safe}};
+      Plotly.plot('chart3',graphs,{});        
+  </script>
+  
+    </html>
